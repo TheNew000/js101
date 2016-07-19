@@ -2,10 +2,19 @@
 <html>
 <head>
     <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
     <style>
         #game{
             text-align: center;
+        /*     background-image: url("medieval.jpg");
+            background-size: 100%; */
         }
+
+        #medieval{
+            height: 100vh;
+        }
+
     </style>
 </head>
 <body>
@@ -55,14 +64,16 @@
         document.images.die2.src = "d" + randomDie2 + ".gif";
         document.images.die3.src = "d" + randomDie3 + ".gif";
         document.images.die4.src = "d" + randomDie4 + ".gif";
+        // if(document.getElementById("heroHealth").value; <= 10){
+        //     lowerHP();} else
         if(heroTotal >= 9 && dragonTotal >= 9) {
             alert("Congratulations your hit was successful but you also took damage!");
-            subtractDragonHealth(4);
-            subtractHeroHealth(4);
-        } else if(dragonTotal >= heroTotal && dragonTotal >= 9) {
+            subtractDragonHealth(3);
+            subtractHeroHealth(3);
+        } else if(9 >= heroTotal && dragonTotal >= 9) {
             alert("so sorry but you're getting toasty!");
             subtractHeroHealth(4);
-        }else if(heroTotal >= dragonTotal && heroTotal >= 9){
+        }else if(9 >= dragonTotal && heroTotal >= 9){
             alert("Congratulations your hit was a SUCCESS!!!!!");
             subtractDragonHealth(4);
         }else if(heroTotal == dragonTotal){
@@ -126,6 +137,27 @@
             document.images.dragon.src = "deaddragon.jpg";
             alert("YOU HAVE SLAYED THE DRAGON!!");
     }
+
+    // function lowerHP(){
+    //     var HP = document.getElementById("heroHealth").value;
+    //     var newHP = HP - n;
+    //         if(heroTotal >= 9 && dragonTotal >= 9) {
+    //         alert("Congratulations your hit was successful but you also took damage!");
+    //         subtractDragonHealth(3);
+    //         subtractHeroHealth(3);
+    //         } else if(dragonTotal >= heroTotal && dragonTotal >= 9) {
+    //             alert("so sorry but you're getting toasty!");
+    //             subtractHeroHealth(4);
+    //         }else if(heroTotal >= dragonTotal && heroTotal >= 9){
+    //             alert("Congratulations your hit was a SUCCESS!!!!!");
+    //             subtractDragonHealth(4);
+    //         }else if(heroTotal == dragonTotal){
+    //             alert("The Dragon was distracted by your shiny armor and no damage was inflicted!");
+    //         }else{
+    //             alert("You BOTH missed!");
+    //             }
+    //         }
+
 
     // function subtractHealth(h, v){
     //     var health2 = document.getElementById(h).value;
