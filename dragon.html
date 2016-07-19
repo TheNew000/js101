@@ -30,6 +30,10 @@
                 <img name="die1" src="d1.gif">
                 <img name="die2" src="d1.gif">
             </div>
+            <div id="special">
+                <input id="courage" type="button" onclick="specialRoll();" value="Courageousness">
+                <input id="potion" type="button" onclick="potion();" value="Magic Potion">
+            </div>
             <div id="dragonDice">
             <h3>Dragon's Roll</h3>
                 <img name="die3" src="d1.gif">
@@ -39,6 +43,7 @@
         
     </div>
 <script>
+
     function rollDice(){
         var randomDie1 = Math.floor(Math.random() * 6) + 1;
         var randomDie2 = Math.floor(Math.random() * 6) + 1;
@@ -50,13 +55,46 @@
         document.images.die2.src = "d" + randomDie2 + ".gif";
         document.images.die3.src = "d" + randomDie3 + ".gif";
         document.images.die4.src = "d" + randomDie4 + ".gif";
-        if (Number(heroTotal) >= 9) {
-            alert("Congratulations your hit was successful!");
-            subtractDragonHealth();
-        } else if(Number(dragonTotal) >= 9) {
-            alert("so sorry but you're getting toasty!")
-            subtractHeroHealth();
+        if(heroTotal >= 9 && dragonTotal >= 9) {
+            alert("Congratulations your hit was successful but you also took damage!");
+            subtractDragonHealth(4);
+            subtractHeroHealth(4);
+        } else if(dragonTotal >= heroTotal && dragonTotal >= 9) {
+            alert("so sorry but you're getting toasty!");
+            subtractHeroHealth(4);
+        }else if(heroTotal >= dragonTotal && heroTotal >= 9){
+            alert("Congratulations your hit was a SUCCESS!!!!!");
+            subtractDragonHealth(4);
+        }else if(heroTotal == dragonTotal){
+            alert("The Dragon was distracted by your shiny armor and no damage was inflicted!");
+        }else{
+            alert("You BOTH missed!");
         }
+    }
+
+
+    function specialRoll(){
+        var randomDie1 = Math.floor(Math.random() * 6) + 1;
+        var randomDie2 = Math.floor(Math.random() * 6) + 1;
+        var randomDie3 = Math.floor(Math.random() * 6) + 1;
+        var randomDie4 = Math.floor(Math.random() * 6) + 1;
+        var heroTotal = Number(randomDie1 + randomDie2);
+        var dragonTotal = Number(randomDie3 + randomDie4);
+        document.images.die1.src = "d" + randomDie1 + ".gif";
+        document.images.die2.src = "d" + randomDie2 + ".gif";
+        document.images.die3.src = "d" + randomDie3 + ".gif";
+        document.images.die4.src = "d" + randomDie4 + ".gif";
+        if (Number(heroTotal) >= 9) {
+            alert("Congratulations your hit was twice as successful!");
+            subtractDragonHealth(8);
+        }else if(Number(dragonTotal) >= 9) {
+            alert("so sorry but you're getting toasty 2x faster!!");
+            subtractHeroHealth(8);
+        }
+    }
+
+    function potion(){
+        subtractHeroHealth(-20);
     }
 
     function coward(){
@@ -64,9 +102,12 @@
         document.getElementById("fight").disabled = true;
     }
 
-    function subtractHeroHealth(){
+    function subtractHeroHealth(n){
         var health1 = document.getElementById("heroHealth").value;
-        var newHealth1 = parseInt(health1) - 1;
+        var newHealth1 = parseInt(health1) - n;
+        if(newHealth1 > 20){
+            newHealth1 = 20;
+        }
         while(newHealth1 >= 0){
             document.getElementById("heroHealth").value = newHealth1;
             return newHealth1;
@@ -75,9 +116,9 @@
         alert("YOU HAVE DIED!!");
     }
 
-    function subtractDragonHealth(){
+    function subtractDragonHealth(n){
         var health2 = document.getElementById("dragonHealth").value;
-        var newHealth2 = parseInt(health2) - 4;
+        var newHealth2 = parseInt(health2) - n;
         while(newHealth2 >= 0){
             document.getElementById("dragonHealth").value = newHealth2;
             return newHealth2;
