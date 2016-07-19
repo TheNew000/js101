@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style>
+        #game{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="game">
+        <div id="counter">
+            <h3>Hero's Health</h3>
+            <input id="heroHealth" value="20">
+            <h3>Dragon's Health</h3>
+            <input id="dragonHealth" value="20">
+        </div>
+        <div id="picture">
+        <h1>Fight the Dragon!</h1>
+            <img name="dragon" src="dragon.png" alt="">
+        </div>
+
+        <div id="instructions">
+            <input id="fight" type="button" onclick="rollDice();" value="Fight!">
+            <input type="button" onclick="coward();" value="Flee!">
+        </div>
+            <div id="playerDice">
+            <h3>Your Roll</h3>
+                <img name="die1" src="d1.gif">
+                <img name="die2" src="d1.gif">
+            </div>
+            <div id="dragonDice">
+            <h3>Dragon's Roll</h3>
+                <img name="die3" src="d1.gif">
+                <img name="die4" src="d1.gif">
+            </div>
+            <p>If you choose to fight you must roll a 9 or higher or you will be burnt to a crisp!</p>
+        
+    </div>
+<script>
+    function rollDice(){
+        var randomDie1 = Math.floor(Math.random() * 6) + 1;
+        var randomDie2 = Math.floor(Math.random() * 6) + 1;
+        var randomDie3 = Math.floor(Math.random() * 6) + 1;
+        var randomDie4 = Math.floor(Math.random() * 6) + 1;
+        var heroTotal = Number(randomDie1 + randomDie2);
+        var dragonTotal = Number(randomDie3 + randomDie4);
+        document.images.die1.src = "d" + randomDie1 + ".gif";
+        document.images.die2.src = "d" + randomDie2 + ".gif";
+        document.images.die3.src = "d" + randomDie3 + ".gif";
+        document.images.die4.src = "d" + randomDie4 + ".gif";
+        if (Number(heroTotal) >= 9) {
+            alert("Congratulations your hit was successful!");
+            subtractDragonHealth();
+        } else if(Number(dragonTotal) >= 9) {
+            alert("so sorry but you're getting toasty!")
+            subtractHeroHealth();
+        }
+    }
+
+    function coward(){
+        document.images.dragon.src = "coward.jpg";
+        document.getElementById("fight").disabled = true;
+    }
+
+    function subtractHeroHealth(){
+        var health1 = document.getElementById("heroHealth").value;
+        var newHealth1 = parseInt(health1) - 1;
+        while(newHealth1 >= 0){
+            document.getElementById("heroHealth").value = newHealth1;
+            return newHealth1;
+        }
+        document.images.dragon.src = "deadknight.jpg";
+        alert("YOU HAVE DIED!!");
+    }
+
+    function subtractDragonHealth(){
+        var health2 = document.getElementById("dragonHealth").value;
+        var newHealth2 = parseInt(health2) - 4;
+        while(newHealth2 >= 0){
+            document.getElementById("dragonHealth").value = newHealth2;
+            return newHealth2;
+        }
+            document.images.dragon.src = "deaddragon.jpg";
+            alert("YOU HAVE SLAYED THE DRAGON!!");
+    }
+
+    // function subtractHealth(h, v){
+    //     var health2 = document.getElementById(h).value;
+    //     var newHealth2 = parseInt(health2) - v;
+    //     while(newHealth2 >= 0){
+    //         document.getElementById(h).value = newHealth2;
+    //         return newHealth2;
+    //     }
+    //         if (h == "dragonHealth"){
+    //             document.images.dragon.src = "deaddragon.jpg";
+    //             alert("YOU HAVE SLAYED THE DRAGON!!");
+    //         }else{
+    //             document.images.dragon.src = "deadknight.jpg";
+    //             alert("YOU HAVE DIED!!");  
+    //         }
+    // }
+
+</script>
+</body>
+</html>

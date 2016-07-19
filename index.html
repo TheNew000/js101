@@ -1,0 +1,127 @@
+<script type="text/javascript">
+ 
+// A property has no () 
+// A message/function HAS ()
+
+ // Printing Stuff
+    // alert("Hello, World!");
+    console.log("Hello, World!");
+    console.dir("Hello, World!");
+    // document.write("Hello, World!");
+
+    // Variable
+    // String - letters, numbers, and other stuff you can make with your keyboard.  Strings are for PEOPLE!  Must be inside of either '' or ""
+
+    var fullName = "Danny Arango"
+    fullName = "Lucifer 'Son of the Morning' Star";
+
+    // Escaping Stuff
+    fullName= "Lucifer \"Son of the Morning\" Star"
+    document.write(fullName);
+
+    // Number
+    // Intergers - Number with NO decimal point
+    var myAge = 37;
+    var myAgeAsString = "37"
+
+    // Operators
+    // In numbers a "+" adds while in a string a "+" concatonates
+    var onMyBirthday = myAge + 1;
+
+    // Adding a string to an objext returns [object Object]
+    // var obj = {};
+    // var huh = myAgeAsString + obj;
+    // console.log(huh); 
+
+    // MODULUS - returns the remainder after dividing two numbers
+    var amIEven = 10 % 2; // return zero
+
+    // More Math Options...
+    var addOneToMe = 1;
+    addOneToMe++; //1
+
+    // Prefix - If you want your operation to happen ASAP, put the ++ at the beginning
+    // PostFix - if you want your operation to happen last, put it at the end
+
+    // concatenate a string and an integer into something useful
+    var aGreatLine = "The meaning of life is " + (40 + 2);
+
+
+    var doubleMyAge = myAge + myAge;
+    doubleMyAge = myAge * 2;
+    var halfMyAge = myAge / 2;
+
+    // Float - is a number WITH a decimal point
+    var floatNumber = 3.14;
+    console.log(typeof(floatNumber));
+    var makeMeAnInteger = parseInt(3.14);
+    console.log(makeMeAnInteger);
+
+    // BOOLEAN - TRUE or FALSE 1(true) or 0(false) in computer speak
+    var theTruth = true;
+    var theLie = false;
+    console.log(theTruth);
+
+    // Prompts - takes two arguments: the message at the top of the dialogue box and the default answer
+    // var userName = prompt("What is your name?", "Lucifer, 'Son of the Morning' Star")
+
+    // JS Prompts are annoying and limited to the page.  As soon as the user leaves, the info is lost.
+    // HTML forms can send lots of data via many methods to other pages
+
+    // CONDITIONALS
+    var classSize = 15;
+    var question = "How big is your coding class?";
+    // var response = prompt(question, classSize);
+
+    // if(response == 15){
+    //     console.log("You are in the July class!");
+    // }
+
+    // response is a string so it will not work
+    // if(response === 15){
+    //     console.log("You are in the July class!");
+    // }
+
+    // if (Number(response) === 15) {
+    //     console.log("Five rows of three?")
+    // } else{
+    //     console.log("You must be enrolled in another class")
+    // }
+
+    // var simpleMathQuestion = prompt("What is 2 + 2")
+    // var answer = Number(simpleMathQuestion);
+    // if(answer === 4){ //Check if they got the right answer
+    //     console.log("Correct.");
+    // }else if(!isNaN(answer)){
+    //     console.log("Where did you go to school?  It's 4!")
+    // }else{
+    //     console.log("You must enter a number!")
+    // }
+
+    var lotteryWinningNumber =5;
+    var yourLotteryNumber = 790789069885759555;
+    if (yourLotteryNumber !== lotteryWinningNumber) {
+        console.log("Sorry, noone ever wins the lottery");
+    }
+
+    // Random
+    var randomNumber = Math.random();
+    console.log(randomNumber);
+    var aNumberBetweenOneAndOneHundred = Math.round(randomNumber * 100);
+    console.log(aNumberBetweenOneAndOneHundred);
+
+
+    var question = prompt("Please enter a number between 1 and 10", "Enter a # between 1-10")
+    var answerNum = Number(question);
+    var num = Math.floor(Math.random() * 10) + 1;
+        if (answerNum === num){
+            console.log("Congratulations you got it right!");
+        }else if (answerNum === num +- 1 || answerNum === num +- 2){
+            console.log("I'm sorry, you were so close but the number is " + num);
+        }else if (!isNaN(answerNum)){
+            console.log("I'm sorry you were not close and the number is " + num)
+        }else{
+            console.log("You must enter a digit between 1 - 10");
+        }
+
+</script>

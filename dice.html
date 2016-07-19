@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fight the Dragon</title>
+
+</head>
+<body>
+<div id="game">
+   <img name = "die1" src="d1.gif">
+   <img name = "die2" src="d1.gif">
+
+    <input type="button" onclick="rollDice();" value="Roll the dice!!">
+
+</div>
+
+<script type="text/javascript">
+    
+// document.getElementById('die1');
+function rollDice(){
+    var randomDie1 = Math.floor(Math.random() * 6) + 1
+    var randomDie2 = Math.floor(Math.random() * 6) + 1
+
+    document.images.die1.src = "d" + randomDie1 + ".gif";
+    document.images.die2.src = "d" + randomDie2 + ".gif";
+}
+
+</script>
+</body>
+</html>
